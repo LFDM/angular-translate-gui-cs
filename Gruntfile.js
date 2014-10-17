@@ -1,6 +1,25 @@
 // Generated on 2014-10-02 using generator-angular-fullstack 2.0.13
 'use strict';
 
+function angularCoffeeFiles() {
+  var classes = ['', 'directive', 'controller', 'service', 'factory', 'value', 'constant'];
+  var res = {};
+  for (var i = classes.length - 1; i >= 0; i--) {
+    var cl = classes[i];
+    var cat = cl ? '.' + cl : cl;
+    var name = cl || 'js';
+    res[name] = {
+      expand: true,
+      flatten: false,
+      cwd: 'client/app',
+      src: '**/*' + cat + '.coffee',
+      dest: 'client/app',
+      ext: cat + '.js'
+    };
+  }
+  return res;
+}
+
 module.exports = function (grunt) {
   var localConfig;
   try {
@@ -548,16 +567,7 @@ module.exports = function (grunt) {
         }
       }
     },
-    coffee: {
-      compile: {
-        expand: true,
-        flatten: false,
-        cwd: 'client/app',
-        src: '**/*.coffee',
-        dest: 'client/app',
-        ext: '.js'
-      }
-    }
+    coffee: angularCoffeeFiles()
   });
 
   // Used for delaying livereload until after server has restarted
