@@ -542,6 +542,16 @@ module.exports = function (grunt) {
         }
       }
     },
+    coffee: {
+      compile: {
+        expand: true,
+        flatten: false,
+        cwd: 'client/app',
+        src: '**/*.coffee',
+        dest: 'client/app',
+        ext: '.js'
+      }
+    }
   });
 
   // Used for delaying livereload until after server has restarted
@@ -569,7 +579,7 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'clean:server',
         'env:all',
-        'injector:sass', 
+        'injector:sass',
         'concurrent:server',
         'injector',
         'wiredep',
@@ -579,9 +589,10 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'coffee',
       'clean:server',
       'env:all',
-      'injector:sass', 
+      'injector:sass',
       'concurrent:server',
       'injector',
       'wiredep',
@@ -611,7 +622,7 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'clean:server',
         'env:all',
-        'injector:sass', 
+        'injector:sass',
         'concurrent:test',
         'injector',
         'autoprefixer',
@@ -624,7 +635,7 @@ module.exports = function (grunt) {
         'clean:server',
         'env:all',
         'env:test',
-        'injector:sass', 
+        'injector:sass',
         'concurrent:test',
         'injector',
         'wiredep',
@@ -642,7 +653,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'injector:sass', 
+    'injector:sass',
     'concurrent:dist',
     'injector',
     'wiredep',
