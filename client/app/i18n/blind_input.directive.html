@@ -1,0 +1,16 @@
+<textarea
+  ng-if="type === 'textarea'"
+  ng-disabled="!adminMode"
+  class="blind"
+  style="width: 100%"
+  placeholder="{{ placeholder }}"
+  ng-model="$parent.model">
+</textarea>
+
+<input
+  ng-if="type !== 'textarea'"
+  ng-disabled="!adminMode"
+  class="blind"
+  placeholder="{{ placeholder }}"
+  ng-model="$parent.model">
+</input>

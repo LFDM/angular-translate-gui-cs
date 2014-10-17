@@ -1,0 +1,18 @@
+<div style="margin-left: .5rem">
+  <md
+    ng-hide="adminMode"
+    class="description"
+    tooltip="{{ tooltipText }}"
+    tooltip-popup-delay="500"
+    tooltip-animation="fade"
+    ng-model="example">
+  </md>
+
+  <div
+    ng-show="adminMode"
+    blind-input
+    placeholder="Enter a comment or a description here..."
+    ng-model="example"
+    type="textarea"/>
+</div>
+

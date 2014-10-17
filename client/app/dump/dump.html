@@ -1,0 +1,12 @@
+<div>
+  <p>Select the languages you want to build</p>
+  <ul class="no-list">
+    <li ng-repeat="lang in languages">
+        <input
+          type="checkbox"
+          ng-model="langsToBuild[lang]">
+          {{ lang }}
+        </input>
+    </li>
+  </ul>
+</div>
