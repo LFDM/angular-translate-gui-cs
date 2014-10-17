@@ -1,0 +1,11 @@
+<div>
+  <span i18n-index-expander/>
+  <span
+    class="clickable index-item-title"
+    ng-class="statusClass"
+    ng-click="scrollThere()">
+    {{ item.name }}
+  </span>
+</div>
+<ul ng-if="expanded" i18n-index-collection="item.values"/>
+<ul ng-if="expanded" i18n-index-collection="item.containers"/>

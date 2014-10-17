@@ -1,0 +1,26 @@
+<div class="row panel" ng-class="statusClass">
+  <p>
+    <div>
+      {{ title }}:
+      <span
+        blind-input
+        ng-model="container.name"
+        placeholder="Enter a container name...">
+      </span>
+      <span class="right slide-right" ng-if="adminMode">
+        <span class="button radius micro" ng-click="addValue(container)">Add value</span>
+        <span class="button radius micro" ng-click="addSubContainer(container)">Add sub-container</span>
+        <span class="button radius micro alert" ng-click="remove()"><strong>Remove</strong></span>
+      </span>
+    </div>
+  </p>
+  <div style="margin-bottom: .2rem">
+    <span example="container.comment"/>
+  </div>
+  <div class="nested-container fade vertically-spaced"
+    ng-repeat="value in container.values track by value._id">
+      <div trsl-value/>
+  </div>
+
+  <div class="vertically-spaced" sub-containers/>
+</div>

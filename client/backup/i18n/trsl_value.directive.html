@@ -1,0 +1,28 @@
+<div class="row panel" ng-class="statusClass">
+  <p>
+    Key:
+    <span
+      blind-input
+      placeholder='Enter a key...'
+      ng-model="value.name">
+    </span>
+  </p>
+
+  <div example="value.comment"/>
+
+  <br/>
+
+  <div>
+    <ul class="button-group radius round">
+      <li class="button tiny" ng-click="setDirty()">all dirty</li>
+      <li class="button tiny" ng-click="remove()" ng-hide="!adminMode"><strong>remove</strong></li>
+      <li class="button tiny" ng-click="setClean()">all clean</li>
+    </ul>
+  </div>
+
+  <br/>
+
+  <div ng-repeat="trsl in value.translations track by trsl.lang" class="fade">
+    <div trsl="trsl"/>
+  </div>
+</div>
