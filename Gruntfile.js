@@ -55,6 +55,12 @@ module.exports = function (grunt) {
       }
     },
     watch: {
+      coffee: {
+        files: [
+          '<%= yeoman.client %>/{app,components}/**/*.coffee',
+        ],
+        tasks: ['coffee']
+      },
       injectJS: {
         files: [
           '<%= yeoman.client %>/{app,components}/**/*.js',
