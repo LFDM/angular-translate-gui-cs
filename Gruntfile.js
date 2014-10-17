@@ -2,13 +2,12 @@
 'use strict';
 
 function angularCoffeeFiles() {
-  var classes = ['', 'directive', 'controller', 'service', 'factory', 'value', 'constant'];
+  var classes = ['directive', 'controller', 'service', 'factory', 'value', 'constant'];
   var res = {};
   for (var i = classes.length - 1; i >= 0; i--) {
     var cl = classes[i];
-    var cat = cl ? '.' + cl : cl;
-    var name = cl || 'js';
-    res[name] = {
+    var cat = '.' + cl;
+    res[cl] = {
       expand: true,
       flatten: false,
       cwd: 'client/app',
@@ -17,6 +16,16 @@ function angularCoffeeFiles() {
       ext: cat + '.js'
     };
   }
+  var exceptions = '{' + classes.join(',') + '}';
+
+  res.js = {
+    expand: true,
+    flatten: false,
+    cwd: 'client/app',
+    src: ['**/*.coffee', '!**/*' + exceptions + '.coffee'],
+    dest: 'client/app',
+    ext: '.js'
+  };
   return res;
 }
 
